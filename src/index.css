@@ -1,0 +1,349 @@
+@import "tailwindcss";
+
+/* ──────────────────────────────────────────────
+   Custom Theme — Electric Blue & Hot Pink on Dark
+   ────────────────────────────────────────────── */
+@theme {
+  --color-dark-900: #0a0a14;
+  --color-dark-800: #0f0f1a;
+  --color-dark-700: #161625;
+  --color-dark-600: #1e1e30;
+  --color-dark-500: #2a2a40;
+  
+  --color-electric: #4F46E5;
+  --color-electric-light: #6366F1;
+  --color-electric-dark: #3730A3;
+  
+  --color-pink: #EC4899;
+  --color-pink-light: #F472B6;
+  --color-pink-dark: #DB2777;
+  
+  --color-cyan: #06B6D4;
+  --color-emerald: #10B981;
+  
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+/* ──────────────────────────────────────────────
+   Base Styles
+   ────────────────────────────────────────────── */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-electric) var(--color-dark-900);
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-dark-900);
+  color: #e2e8f0;
+  overflow-x: hidden;
+  line-height: 1.7;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-dark-900);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-electric);
+  border-radius: 4px;
+}
+
+::selection {
+  background-color: var(--color-electric);
+  color: white;
+}
+
+/* ──────────────────────────────────────────────
+   Animated Gradient Background
+   ────────────────────────────────────────────── */
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.animated-gradient {
+  background: linear-gradient(
+    -45deg,
+    var(--color-dark-900),
+    var(--color-electric-dark),
+    var(--color-dark-800),
+    var(--color-pink-dark)
+  );
+  background-size: 400% 400%;
+  animation: gradient-shift 12s ease infinite;
+}
+
+/* ──────────────────────────────────────────────
+   Glassmorphism
+   ────────────────────────────────────────────── */
+.glass {
+  background: rgba(15, 15, 26, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(99, 102, 241, 0.15);
+}
+
+.glass-card {
+  background: rgba(30, 30, 48, 0.5);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(99, 102, 241, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+  border-color: rgba(99, 102, 241, 0.3);
+  box-shadow: 0 0 30px rgba(79, 70, 229, 0.15);
+  transform: translateY(-4px);
+}
+
+/* ──────────────────────────────────────────────
+   Glow Effects
+   ────────────────────────────────────────────── */
+.glow-blue {
+  box-shadow: 0 0 20px rgba(79, 70, 229, 0.3),
+              0 0 60px rgba(79, 70, 229, 0.1);
+}
+
+.glow-pink {
+  box-shadow: 0 0 20px rgba(236, 72, 153, 0.3),
+              0 0 60px rgba(236, 72, 153, 0.1);
+}
+
+.text-glow-blue {
+  text-shadow: 0 0 20px rgba(79, 70, 229, 0.5),
+               0 0 40px rgba(79, 70, 229, 0.2);
+}
+
+.text-glow-pink {
+  text-shadow: 0 0 20px rgba(236, 72, 153, 0.5),
+               0 0 40px rgba(236, 72, 153, 0.2);
+}
+
+/* ──────────────────────────────────────────────
+   Gradient Text
+   ────────────────────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-electric-light), var(--color-pink));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-reverse {
+  background: linear-gradient(135deg, var(--color-pink), var(--color-electric-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ──────────────────────────────────────────────
+   Gradient Border
+   ────────────────────────────────────────────── */
+.gradient-border {
+  position: relative;
+  border-radius: 16px;
+  padding: 1px;
+  background: linear-gradient(135deg, var(--color-electric), var(--color-pink));
+}
+
+.gradient-border > * {
+  border-radius: 15px;
+  background: var(--color-dark-800);
+}
+
+/* ──────────────────────────────────────────────
+   Button Styles
+   ────────────────────────────────────────────── */
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-electric), var(--color-pink));
+  color: white;
+  padding: 12px 32px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn-primary:hover::before {
+  left: 100%;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(79, 70, 229, 0.4);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--color-electric-light);
+  padding: 12px 32px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+  border: 2px solid var(--color-electric);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+  background: rgba(79, 70, 229, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(79, 70, 229, 0.2);
+}
+
+/* ──────────────────────────────────────────────
+   Section Styles
+   ────────────────────────────────────────────── */
+.section-title {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.section-subtitle {
+  color: #94a3b8;
+  font-size: 1.125rem;
+  max-width: 600px;
+}
+
+/* ──────────────────────────────────────────────
+   Typing Cursor
+   ────────────────────────────────────────────── */
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.typing-cursor {
+  display: inline-block;
+  width: 3px;
+  height: 1em;
+  background: var(--color-pink);
+  margin-left: 4px;
+  animation: blink 1s infinite;
+  vertical-align: text-bottom;
+}
+
+/* ──────────────────────────────────────────────
+   Timeline
+   ────────────────────────────────────────────── */
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--color-electric), var(--color-pink));
+  transform: translateX(-50%);
+}
+
+.timeline-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--color-electric);
+  border: 3px solid var(--color-dark-800);
+  box-shadow: 0 0 15px rgba(79, 70, 229, 0.5);
+}
+
+/* ──────────────────────────────────────────────
+   Responsive helpers
+   ────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+  }
+  .timeline-line {
+    left: 20px;
+  }
+}
+
+/* ──────────────────────────────────────────────
+   Noise / Grain overlay
+   ────────────────────────────────────────────── */
+.noise-overlay::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  z-index: 9999;
+}
+
+/* ──────────────────────────────────────────────
+   Skill Bar Animation
+   ────────────────────────────────────────────── */
+@keyframes fillBar {
+  from { width: 0%; }
+}
+
+.skill-bar-fill {
+  animation: fillBar 1.5s ease-out forwards;
+}
+
+/* ──────────────────────────────────────────────
+   Floating animation
+   ────────────────────────────────────────────── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.floating {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* ──────────────────────────────────────────────
+   Pulse ring animation
+   ────────────────────────────────────────────── */
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.pulse-ring::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid var(--color-electric);
+  animation: pulse-ring 2s ease-out infinite;
+}
