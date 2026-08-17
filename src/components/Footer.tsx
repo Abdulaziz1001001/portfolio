@@ -35,9 +35,9 @@ export default function Footer() {
           {/* Social Icons */}
           <div className="flex items-center justify-center gap-4">
             {[
-              { icon: LinkedinIcon, href: 'https://linkedin.com/in/your-profile', label: 'LinkedIn' },
-              { icon: Mail, href: 'mailto:your@email.com', label: 'Email' },
-              { icon: MessageCircle, href: 'https://wa.me/966XXXXXXXXX', label: 'WhatsApp' },
+              { icon: LinkedinIcon, href: 'https://www.linkedin.com/in/abdulaziz-alikah-127913289', label: 'LinkedIn' },
+              { icon: Mail, href: 'mailto:azizshaban73@gmail.com', label: 'Email' },
+              { icon: MessageCircle, href: 'https://wa.me/966504600202', label: 'WhatsApp' },
             ].map((social) => (
               <a
                 key={social.label}

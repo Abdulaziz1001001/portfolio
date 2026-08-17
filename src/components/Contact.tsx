@@ -71,129 +71,119 @@ export default function Contact() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto items-start">
-            {/* Contact Form */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={isVisible ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <div className="glass-card rounded-2xl p-8 border border-white/5 text-center">
-                <h3 className="font-[var(--font-heading)] text-xl font-bold text-white mb-6 text-center">
-                  Send a Direct Brief
-                </h3>
-
-                {submitted ? (
-                  <motion.div
-                    initial={{ scale: 0.8, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 1 }}
-                    className="text-center py-12"
-                  >
-                    <div className="w-16 h-16 mx-auto rounded-full bg-emerald/20 flex items-center justify-center mb-4">
-                      <Send size={24} className="text-emerald" />
-                    </div>
-                    <p className="text-white font-semibold mb-2">Message Received</p>
-                    <p className="text-gray-400 text-sm">Thank you. I will review your inquiry and follow up promptly.</p>
-                  </motion.div>
-                ) : (
-                  <form onSubmit={handleSubmit} className="space-y-5 text-center">
-                    <div>
-                      <label htmlFor="contact-name" className="text-sm text-gray-400 mb-1.5 block text-center">Full Name</label>
-                      <input
-                        id="contact-name"
-                        type="text"
-                        required
-                        value={formData.name}
-                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl bg-dark-700 border border-white/10 text-white text-center placeholder:text-gray-600 focus:outline-none focus:border-electric/50 focus:ring-1 focus:ring-electric/30 transition-all"
-                        placeholder="e.g. John Doe / Eng. Sarah Al-Otaibi"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="contact-email" className="text-sm text-gray-400 mb-1.5 block text-center">Corporate Email</label>
-                      <input
-                        id="contact-email"
-                        type="email"
-                        required
-                        value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl bg-dark-700 border border-white/10 text-white text-center placeholder:text-gray-600 focus:outline-none focus:border-electric/50 focus:ring-1 focus:ring-electric/30 transition-all"
-                        placeholder="you@company.com"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="contact-message" className="text-sm text-gray-400 mb-1.5 block text-center">Project Context & Scope</label>
-                      <textarea
-                        id="contact-message"
-                        required
-                        rows={5}
-                        value={formData.message}
-                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl bg-dark-700 border border-white/10 text-white text-center placeholder:text-gray-600 focus:outline-none focus:border-electric/50 focus:ring-1 focus:ring-electric/30 transition-all resize-none"
-                        placeholder="Briefly outline your systems requirements, timeline, or consultation goals..."
-                      />
-                    </div>
-                    <button type="submit" className="btn-primary w-full flex items-center justify-center gap-2">
-                      <Send size={16} />
-                      Submit Inquiry
-                    </button>
-                  </form>
-                )}
-              </div>
-            </motion.div>
-
-            {/* Social Links Side */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={isVisible ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="space-y-6 text-center"
-            >
-              <div className="text-center">
-                <h3 className="font-[var(--font-heading)] text-xl font-bold text-white mb-2 text-center">
-                  Direct Channels
-                </h3>
-                <p className="text-gray-400 text-sm text-center">
-                  Feel free to connect via preferred executive communication channels.
-                </p>
-              </div>
-
-              {socialLinks.map((link, i) => (
-                <motion.a
-                  key={link.label}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={isVisible ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.5, delay: 0.5 + i * 0.1 }}
-                  className={`glass-card rounded-2xl p-5 flex items-center justify-between group border border-white/5 ${link.color} transition-all`}
-                >
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center group-hover:bg-white/10 transition-colors">
-                      <link.icon size={22} className="text-gray-400 group-hover:scale-110 transition-all" />
-                    </div>
-                    <div className="text-left">
-                      <div className="text-white font-semibold text-sm">{link.label}</div>
-                      <div className="text-gray-500 text-xs">{link.description}</div>
-                    </div>
-                  </div>
-                  <ArrowUpRight size={16} className="text-gray-600 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                </motion.a>
-              ))}
-
-              {/* Availability Card */}
-              <div className="glass-card rounded-2xl p-6 mt-8 border border-emerald/20 text-center flex flex-col items-center">
-                <div className="flex items-center justify-center gap-3 mb-3 text-center">
-                  <span className="w-3 h-3 rounded-full bg-emerald animate-pulse" />
-                  <span className="text-emerald text-sm font-semibold">Open for Strategic Opportunities</span>
+          {/* Centered Direct Channels Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 max-w-4xl mx-auto mb-8">
+            {socialLinks.map((link, i) => (
+              <motion.a
+                key={link.label}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 20 }}
+                animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}
+                className={`glass-card rounded-2xl p-6 flex flex-col items-center text-center group border border-white/5 ${link.color} transition-all shadow-lg hover:scale-105`}
+              >
+                <div className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center mb-3 group-hover:bg-white/10 transition-colors shadow-md">
+                  <link.icon size={22} className="text-gray-300 group-hover:scale-110 transition-all" />
                 </div>
-                <p className="text-gray-400 text-sm leading-relaxed text-center">
-                  Available for technical operations consulting, enterprise systems architecture reviews, and high-impact ConTech advisory.
-                </p>
-              </div>
-            </motion.div>
+                <div className="text-white font-semibold text-base mb-1 flex items-center gap-1.5 justify-center">
+                  <span>{link.label}</span>
+                  <ArrowUpRight size={14} className="text-gray-500 group-hover:text-white transition-colors" />
+                </div>
+                <div className="text-gray-400 text-xs">{link.description}</div>
+              </motion.a>
+            ))}
           </div>
+
+          {/* Centered Availability Status Banner */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="glass-card rounded-2xl p-4 max-w-2xl mx-auto border border-emerald/20 text-center flex flex-col sm:flex-row items-center justify-center gap-3 mb-10 shadow-lg"
+          >
+            <div className="flex items-center gap-2">
+              <span className="w-3 h-3 rounded-full bg-emerald animate-pulse" />
+              <span className="text-emerald text-sm font-semibold">Available for Strategic Opportunities</span>
+            </div>
+            <span className="text-gray-500 hidden sm:inline">•</span>
+            <span className="text-gray-400 text-xs sm:text-sm">Technical Operations & ConTech Advisory</span>
+          </motion.div>
+
+          {/* Centered Contact Form Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="max-w-2xl mx-auto"
+          >
+            <div className="glass-card rounded-3xl p-8 sm:p-10 border border-white/10 text-center shadow-2xl">
+              <h3 className="font-[var(--font-heading)] text-2xl font-bold text-white mb-2 text-center">
+                Send a Direct Brief
+              </h3>
+              <p className="text-gray-400 text-sm mb-8 text-center">
+                Briefly outline your systems requirements, consultation goals, or project scope.
+              </p>
+
+              {submitted ? (
+                <motion.div
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  className="text-center py-12"
+                >
+                  <div className="w-16 h-16 mx-auto rounded-full bg-emerald/20 flex items-center justify-center mb-4">
+                    <Send size={24} className="text-emerald" />
+                  </div>
+                  <p className="text-white font-semibold text-lg mb-2">Message Received</p>
+                  <p className="text-gray-400 text-sm">Thank you. I will review your inquiry and follow up promptly.</p>
+                </motion.div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-5 text-center">
+                  <div>
+                    <label htmlFor="contact-name" className="text-sm font-medium text-gray-300 mb-2 block text-center">Full Name</label>
+                    <input
+                      id="contact-name"
+                      type="text"
+                      required
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      className="w-full px-4 py-3.5 rounded-xl bg-dark-700 border border-white/10 text-white text-center placeholder:text-gray-500 focus:outline-none focus:border-electric/50 focus:ring-1 focus:ring-electric/30 transition-all text-sm"
+                      placeholder="e.g. Eng. Sarah Al-Otaibi / John Doe"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="contact-email" className="text-sm font-medium text-gray-300 mb-2 block text-center">Corporate Email</label>
+                    <input
+                      id="contact-email"
+                      type="email"
+                      required
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      className="w-full px-4 py-3.5 rounded-xl bg-dark-700 border border-white/10 text-white text-center placeholder:text-gray-500 focus:outline-none focus:border-electric/50 focus:ring-1 focus:ring-electric/30 transition-all text-sm"
+                      placeholder="you@company.com"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="contact-message" className="text-sm font-medium text-gray-300 mb-2 block text-center">Project Context & Scope</label>
+                    <textarea
+                      id="contact-message"
+                      required
+                      rows={5}
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      className="w-full px-4 py-3.5 rounded-xl bg-dark-700 border border-white/10 text-white text-center placeholder:text-gray-500 focus:outline-none focus:border-electric/50 focus:ring-1 focus:ring-electric/30 transition-all resize-none text-sm"
+                      placeholder="Briefly outline your systems requirements, timeline, or consultation goals..."
+                    />
+                  </div>
+                  <button type="submit" className="btn-primary w-full flex items-center justify-center gap-2 py-3.5 text-base shadow-lg shadow-electric/25">
+                    <Send size={18} />
+                    <span>Submit Inquiry</span>
+                  </button>
+                </form>
+              )}
+            </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>

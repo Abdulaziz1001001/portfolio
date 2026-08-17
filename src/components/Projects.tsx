@@ -75,71 +75,66 @@ export default function Projects() {
           </div>
 
           {/* Project Cards */}
-          <div className="space-y-8 max-w-5xl mx-auto">
+          <div className="space-y-8 max-w-4xl mx-auto">
             {projects.map((project, i) => (
               <motion.div
                 key={project.id}
                 initial={{ opacity: 0, y: 40 }}
-                animate={isVisible ? { opacity: 1, y: 0 } : {}}
+                animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 + i * 0.15 }}
               >
-                <TiltCard className="w-full" maxTilt={4}>
-                  <div className="glass-card rounded-2xl overflow-hidden border border-white/5 hover:border-white/20 transition-all">
-                    <div className="grid md:grid-cols-[1fr_2.2fr] gap-0">
-                      {/* Left: Visual */}
-                      <div className={`bg-gradient-to-br ${project.gradient} p-8 flex flex-col items-center justify-center min-h-[220px] relative overflow-hidden text-center`}>
-                        <div
-                          className="absolute inset-0 opacity-15"
-                          style={{
-                            backgroundImage: `radial-gradient(circle at 30% 70%, rgba(255,255,255,0.4) 0%, transparent 50%)`,
-                          }}
-                        />
-                        <project.icon size={48} className="text-white mb-4 relative z-10 drop-shadow-md" />
-                        <span className="text-white/90 text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full bg-black/20 relative z-10">
-                          {project.impactBadge}
+                <TiltCard className="w-full" maxTilt={3}>
+                  <div className="glass-card rounded-3xl overflow-hidden border border-white/10 hover:border-white/20 transition-all shadow-xl text-center">
+                    {/* Top Gradient Banner */}
+                    <div className={`bg-gradient-to-r ${project.gradient} p-6 sm:p-8 flex flex-col items-center justify-center relative overflow-hidden text-center`}>
+                      <div
+                        className="absolute inset-0 opacity-20"
+                        style={{
+                          backgroundImage: `radial-gradient(circle at 50% 50%, rgba(255,255,255,0.4) 0%, transparent 60%)`,
+                        }}
+                      />
+                      <div className="w-16 h-16 rounded-2xl bg-black/25 backdrop-blur-md flex items-center justify-center mb-3 relative z-10 border border-white/20 shadow-lg">
+                        <project.icon size={32} className="text-white drop-shadow-md" />
+                      </div>
+                      <span className="text-white text-xs font-semibold uppercase tracking-wider px-4 py-1.5 rounded-full bg-black/30 backdrop-blur-md relative z-10 border border-white/15">
+                        {project.impactBadge}
+                      </span>
+                    </div>
+
+                    {/* Content Body */}
+                    <div className="p-8 sm:p-10 flex flex-col items-center text-center">
+                      <div className="mb-4">
+                        <h3 className="font-[var(--font-heading)] text-2xl sm:text-3xl font-bold text-white text-center mb-2">
+                          {project.title}
+                        </h3>
+                        <span className={`inline-block text-xs sm:text-sm font-semibold ${project.accentColor} px-3 py-1 rounded-full bg-white/5 border border-white/10`}>
+                          {project.role}
                         </span>
                       </div>
 
-                      {/* Right: Content */}
-                      <div className="p-8 flex flex-col justify-between text-center items-center">
-                        <div className="w-full flex flex-col items-center">
-                          <div className="relative w-full flex flex-col items-center justify-center mb-3">
-                            <h3 className="font-[var(--font-heading)] text-xl font-bold text-white text-center">
-                              {project.title}
-                            </h3>
-                            <span className={`text-xs font-semibold ${project.accentColor} mt-1 block text-center`}>{project.role}</span>
-                            <button
-                              className="absolute right-0 top-0 p-2 rounded-lg bg-white/5 hover:bg-white/10 transition-colors hidden sm:block"
-                              aria-label="View project details"
-                            >
-                              <ExternalLink size={16} className="text-gray-400 hover:text-white transition-colors" />
-                            </button>
-                          </div>
+                      <p className="text-gray-300 text-sm sm:text-base leading-relaxed mb-6 max-w-2xl mx-auto text-center">
+                        {project.description}
+                      </p>
 
-                          <p className="text-gray-300 text-sm leading-relaxed mb-4 text-center">
-                            {project.description}
-                          </p>
+                      {/* Strategic Impact Box */}
+                      <div className="mb-8 p-4 rounded-2xl bg-white/[0.03] border border-white/5 flex flex-col sm:flex-row items-center justify-center gap-2.5 text-center max-w-2xl w-full mx-auto">
+                        <ShieldCheck size={18} className={`${project.accentColor} shrink-0`} />
+                        <p className="text-gray-300 text-xs sm:text-sm leading-relaxed text-center">
+                          <strong className="text-white">Strategic Impact: </strong>
+                          {project.impact}
+                        </p>
+                      </div>
 
-                          <div className="mb-5 p-3 rounded-xl bg-white/[0.03] border border-white/5 flex flex-col sm:flex-row items-center justify-center gap-2 text-center w-full">
-                            <ShieldCheck size={16} className={`${project.accentColor} shrink-0`} />
-                            <p className="text-gray-400 text-xs leading-relaxed text-center">
-                              <strong className="text-gray-200">Strategic Impact: </strong>
-                              {project.impact}
-                            </p>
-                          </div>
-                        </div>
-
-                        {/* Tags */}
-                        <div className="flex flex-wrap justify-center gap-2 w-full">
-                          {project.tags.map((tag) => (
-                            <span
-                              key={tag}
-                              className="px-3 py-1 rounded-full bg-white/5 text-xs text-gray-300 border border-white/10"
-                            >
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
+                      {/* Technology Tags */}
+                      <div className="flex flex-wrap justify-center gap-2">
+                        {project.tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="px-3.5 py-1.5 rounded-full bg-white/5 text-xs text-gray-300 border border-white/10 hover:border-white/20 transition-colors"
+                          >
+                            {tag}
+                          </span>
+                        ))}
                       </div>
                     </div>
                   </div>

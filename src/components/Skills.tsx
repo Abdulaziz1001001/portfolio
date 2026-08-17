@@ -65,12 +65,12 @@ function SkillBar({ name, level, delay }: { name: string; level: number; delay: 
     <div ref={ref} className="space-y-2">
       <div className="flex justify-between text-sm">
         <span className="text-gray-300">{name}</span>
-        <span className="text-gray-500 font-mono text-xs">{level}%</span>
+        <span className="text-gray-400 font-mono text-xs">{level}%</span>
       </div>
       <div className="h-2 rounded-full bg-dark-600 overflow-hidden">
         <motion.div
           initial={{ width: 0 }}
-          animate={isVisible ? { width: `${level}%` } : { width: 0 }}
+          animate={isVisible ? { width: `${level}%` } : { width: `${level}%` }}
           transition={{ duration: 1.2, delay, ease: 'easeOut' }}
           className="h-full rounded-full bg-gradient-to-r from-electric to-pink"
         />
@@ -87,10 +87,10 @@ export default function Skills() {
       {/* Background */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-electric/5 rounded-full blur-[200px] pointer-events-none" />
 
-      <div ref={ref} className="max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div ref={ref} className="max-w-5xl w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
-          animate={isVisible ? { opacity: 1, y: 0 } : {}}
+          animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
         >
           {/* Section Header */}
@@ -110,16 +110,16 @@ export default function Skills() {
               <motion.div
                 key={cat.title}
                 initial={{ opacity: 0, y: 30 }}
-                animate={isVisible ? { opacity: 1, y: 0 } : {}}
+                animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 + catIndex * 0.15 }}
-                className={`glass-card rounded-2xl p-6 border ${cat.borderColor} flex flex-col justify-between text-center`}
+                className={`glass-card rounded-3xl p-6 sm:p-8 border ${cat.borderColor} flex flex-col justify-between text-center shadow-xl`}
               >
                 <div>
-                  <div className={`w-12 h-12 mx-auto rounded-xl bg-gradient-to-br ${cat.color} flex items-center justify-center mb-5 shadow-lg`}>
-                    <cat.icon size={22} className="text-white" />
+                  <div className={`w-12 h-12 mx-auto rounded-2xl bg-gradient-to-br ${cat.color} flex items-center justify-center mb-5 shadow-lg`}>
+                    <cat.icon size={24} className="text-white" />
                   </div>
                   <h3 className="font-[var(--font-heading)] text-lg font-bold text-white mb-6 leading-snug text-center">{cat.title}</h3>
-                  <div className="space-y-4">
+                  <div className="space-y-4 text-left">
                     {cat.skills.map((skill, i) => (
                       <SkillBar key={skill.name} name={skill.name} level={skill.level} delay={0.3 + i * 0.1} />
                     ))}
@@ -138,12 +138,12 @@ export default function Skills() {
               <motion.div
                 key={tech.name}
                 initial={{ opacity: 0, scale: 0.8 }}
-                animate={isVisible ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.4, delay: 0.5 + i * 0.05 }}
-                className="glass-card rounded-xl p-4 flex flex-col items-center gap-3 group cursor-default border border-white/5 hover:border-white/20 transition-all"
+                animate={isVisible ? { opacity: 1, scale: 1 } : { opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4, delay: 0.3 + i * 0.04 }}
+                className="glass-card rounded-2xl p-4 flex flex-col items-center gap-3 group cursor-default border border-white/5 hover:border-white/20 transition-all shadow-md hover:scale-105"
               >
                 <tech.icon size={28} className={`${tech.color} group-hover:scale-125 transition-transform duration-300`} />
-                <span className="text-gray-400 text-xs font-medium text-center">{tech.name}</span>
+                <span className="text-gray-300 text-xs font-medium text-center">{tech.name}</span>
               </motion.div>
             ))}
           </div>

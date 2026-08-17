@@ -80,81 +80,60 @@ export default function Experience() {
             </p>
           </div>
 
-          {/* Timeline */}
-          <div className="relative max-w-4xl mx-auto">
-            {/* Vertical line */}
-            <div className="absolute left-5 md:left-1/2 md:-translate-x-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-electric via-pink to-emerald" />
+          {/* Centered Milestones Stream */}
+          <div className="space-y-6 max-w-3xl mx-auto">
+            {timelineItems.map((item, i) => {
+              const colors = colorMap[item.color];
 
-            <div className="space-y-12">
-              {timelineItems.map((item, i) => {
-                const colors = colorMap[item.color];
-                const isEven = i % 2 === 0;
-
-                return (
-                  <motion.div
-                    key={item.title}
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={isVisible ? { opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.6, delay: 0.2 + i * 0.15 }}
-                    className={`relative flex items-center ${
-                      isEven ? 'md:justify-start' : 'md:justify-end'
-                    } justify-start`}
-                  >
-                    {/* Dot */}
-                    <div className="absolute left-5 md:left-1/2 -translate-x-1/2 z-10">
-                      <div
-                        className={`w-4 h-4 rounded-full ${colors.dot} ring-4 ring-dark-900 shadow-lg`}
-                        style={{
-                          boxShadow: `0 0 15px ${
-                            item.color === 'electric'
-                              ? 'rgba(79,70,229,0.5)'
-                              : item.color === 'pink'
-                              ? 'rgba(236,72,153,0.5)'
-                              : item.color === 'cyan'
-                              ? 'rgba(6,182,212,0.5)'
-                              : 'rgba(16,185,129,0.5)'
-                          }`,
-                        }}
-                      />
-                    </div>
-
-                    {/* Spacer for mobile */}
-                    <div className="w-12 shrink-0 md:hidden" />
-
-                    {/* Card */}
-                    <div className={`w-full md:w-[calc(50%-2rem)] ${isEven ? 'md:mr-auto md:pr-4' : 'md:ml-auto md:pl-4'}`}>
-                      <div className={`glass-card rounded-2xl p-6 border ${colors.border} hover:border-white/20 transition-all text-center flex flex-col items-center`}>
-                        <div className="flex items-center justify-center gap-3 mb-3 text-center">
-                          <div className={`w-10 h-10 rounded-lg ${colors.bg} flex items-center justify-center`}>
-                            <item.icon size={18} className={colors.text} />
-                          </div>
-                          <div className="text-center">
-                            <span className={`text-xs font-semibold ${colors.text}`}>{item.period}</span>
-                            <span className="text-gray-600 mx-2">•</span>
-                            <span className="text-gray-400 text-xs">{item.org}</span>
-                          </div>
-                        </div>
-
-                        <h3 className="font-[var(--font-heading)] text-lg font-bold text-white mb-2 flex items-center justify-center gap-2 text-center">
-                          {item.title}
-                          <ArrowUpRight size={14} className="text-gray-500" />
-                        </h3>
-
-                        <p className="text-gray-300 text-sm leading-relaxed mb-4 text-center">{item.description}</p>
-
-                        <div className="flex flex-wrap justify-center gap-2">
-                          {item.highlights.map((h) => (
-                            <span key={h} className="px-2.5 py-1 rounded-full bg-white/5 text-xs text-gray-300 border border-white/5">
-                              {h}
-                            </span>
-                          ))}
-                        </div>
+              return (
+                <motion.div
+                  key={item.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 + i * 0.12 }}
+                  className="w-full"
+                >
+                  <div className={`glass-card rounded-3xl p-6 sm:p-8 border ${colors.border} hover:border-white/20 transition-all text-center flex flex-col items-center shadow-xl relative overflow-hidden`}>
+                    {/* Header with Icon & Org Badge */}
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-4 text-center">
+                      <div className={`w-11 h-11 rounded-xl ${colors.bg} flex items-center justify-center shadow-md`}>
+                        <item.icon size={20} className={colors.text} />
+                      </div>
+                      <div className="flex items-center gap-2 text-center flex-wrap justify-center">
+                        <span className={`text-xs sm:text-sm font-semibold ${colors.text} px-3 py-1 rounded-full bg-white/5 border border-white/10`}>
+                          {item.period}
+                        </span>
+                        <span className="text-gray-400 text-xs sm:text-sm font-medium">
+                          {item.org}
+                        </span>
                       </div>
                     </div>
-                  </motion.div>
-                );
-              })}
-            </div>
+
+                    {/* Title */}
+                    <h3 className="font-[var(--font-heading)] text-xl sm:text-2xl font-bold text-white mb-3 text-center">
+                      {item.title}
+                    </h3>
+
+                    {/* Description */}
+                    <p className="text-gray-300 text-sm sm:text-base leading-relaxed mb-6 text-center max-w-2xl mx-auto">
+                      {item.description}
+                    </p>
+
+                    {/* Highlights */}
+                    <div className="flex flex-wrap justify-center gap-2">
+                      {item.highlights.map((h) => (
+                        <span
+                          key={h}
+                          className="px-3 py-1.5 rounded-full bg-white/5 text-xs text-gray-300 border border-white/10"
+                        >
+                          {h}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </motion.div>
       </div>

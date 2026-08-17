@@ -49,11 +49,11 @@ export default function Navbar() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
-        className={`fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 ${
-          isScrolled ? 'glass py-3' : 'py-5 bg-transparent'
+        className={`fixed top-4 left-0 right-0 mx-auto w-[92%] max-w-5xl z-50 rounded-2xl transition-all duration-300 ${
+          isScrolled ? 'glass shadow-2xl shadow-electric/10 border border-white/15 py-2.5 px-4 sm:px-6' : 'glass border border-white/10 py-3 px-4 sm:px-6'
         }`}
       >
-        <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between relative">
+        <div className="w-full flex items-center justify-between relative">
           {/* Logo */}
           <button
             onClick={() => scrollTo('#hero')}

@@ -34,10 +34,10 @@ export default function Philosophy() {
       {/* Background accents */}
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-pink/5 rounded-full blur-[150px] pointer-events-none" />
 
-      <div ref={ref} className="max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div ref={ref} className="max-w-5xl w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
-          animate={isVisible ? { opacity: 1, y: 0 } : {}}
+          animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
         >
           {/* Section Header */}
@@ -54,12 +54,12 @@ export default function Philosophy() {
           {/* Quote Block */}
           <motion.blockquote
             initial={{ opacity: 0, scale: 0.95 }}
-            animate={isVisible ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.7, delay: 0.3 }}
-            className="glass-card rounded-2xl p-8 md:p-12 text-center mb-16 relative border border-white/10"
+            animate={isVisible ? { opacity: 1, scale: 1 } : { opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="glass-card rounded-3xl p-8 sm:p-12 text-center mb-12 relative border border-white/10 shadow-2xl max-w-4xl mx-auto"
           >
-            <div className="absolute top-4 left-6 text-6xl text-electric/20 font-serif leading-none">"</div>
-            <p className="text-lg md:text-xl text-gray-200 italic leading-relaxed max-w-3xl mx-auto relative z-10 font-normal">
+            <div className="text-5xl text-electric/30 font-serif leading-none mb-3">"</div>
+            <p className="text-lg sm:text-xl text-gray-200 italic leading-relaxed max-w-2xl mx-auto relative z-10 font-normal">
               The exact rigor I cultivate in weightlifting translates directly into tech leadership: showing up consistently, methodically eliminating operational friction, and ensuring enterprise architectures{' '}
               <span className="gradient-text font-semibold not-italic">never buckle under load</span>.
             </p>
@@ -67,16 +67,16 @@ export default function Philosophy() {
           </motion.blockquote>
 
           {/* Pillar Cards */}
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {pillars.map((pillar, i) => (
               <motion.div
                 key={pillar.title}
                 initial={{ opacity: 0, y: 30 }}
-                animate={isVisible ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.4 + i * 0.15 }}
-                className="glass-card rounded-2xl p-8 text-center group border border-white/5 hover:border-white/20 transition-all"
+                animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 + i * 0.12 }}
+                className="glass-card rounded-3xl p-8 text-center group border border-white/5 hover:border-white/20 transition-all shadow-xl"
               >
-                <div className={`w-14 h-14 mx-auto rounded-xl ${pillar.bg} flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300`}>
+                <div className={`w-14 h-14 mx-auto rounded-2xl ${pillar.bg} flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300 shadow-md`}>
                   <pillar.icon size={24} className={pillar.color} />
                 </div>
                 <h3 className="font-[var(--font-heading)] text-lg font-bold text-white mb-3">
