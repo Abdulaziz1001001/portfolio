@@ -49,8 +49,8 @@ export default function Navbar() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
-        className={`fixed top-4 left-0 right-0 mx-auto w-[92%] max-w-5xl z-50 rounded-2xl transition-all duration-300 ${
-          isScrolled ? 'glass shadow-2xl shadow-electric/10 border border-white/15 py-2.5 px-4 sm:px-6' : 'glass border border-white/10 py-3 px-4 sm:px-6'
+        className={`fixed top-4 left-0 right-0 mx-auto w-[92%] max-w-4xl z-50 rounded-2xl transition-all duration-300 ${
+          isScrolled ? 'glass shadow-2xl shadow-black/80 border border-amber-500/20 py-2.5 px-4 sm:px-6' : 'glass border border-white/10 py-3 px-4 sm:px-6'
         }`}
       >
         <div className="w-full flex items-center justify-between relative">
@@ -63,22 +63,22 @@ export default function Navbar() {
             <span className="text-white">bdulaziz</span>
           </button>
 
-          {/* Desktop Links - Perfectly centered */}
+          {/* Desktop Links */}
           <div className="hidden md:flex items-center gap-1 absolute left-1/2 -translate-x-1/2">
             {navLinks.map((link) => (
               <button
                 key={link.href}
                 onClick={() => scrollTo(link.href)}
-                className={`relative px-3.5 py-2 rounded-lg text-sm font-medium transition-colors duration-300 ${
+                className={`relative px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-300 ${
                   activeSection === link.href.slice(1)
-                    ? 'text-white'
-                    : 'text-gray-400 hover:text-gray-200'
+                    ? 'text-amber-300'
+                    : 'text-zinc-400 hover:text-zinc-200'
                 }`}
               >
                 {activeSection === link.href.slice(1) && (
                   <motion.div
                     layoutId="nav-active"
-                    className="absolute inset-0 rounded-lg bg-white/10 border border-white/15"
+                    className="absolute inset-0 rounded-lg bg-amber-500/10 border border-amber-500/25"
                     transition={{ type: 'spring', stiffness: 350, damping: 30 }}
                   />
                 )}

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Calendar, ArrowRight, Clock, BookOpen } from 'lucide-react';
+import { Calendar, Clock } from 'lucide-react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const articles = [
@@ -10,7 +10,7 @@ const articles = [
     category: 'ConTech Strategy',
     date: 'Upcoming',
     readTime: '6 min read',
-    gradient: 'from-electric/30 to-pink/30',
+    gradient: 'from-amber-600/20 to-zinc-900',
   },
   {
     title: 'Vendor Governance: Mitigating Scope Creep in External Dev Teams',
@@ -19,7 +19,7 @@ const articles = [
     category: 'Technical Leadership',
     date: 'Upcoming',
     readTime: '8 min read',
-    gradient: 'from-pink/30 to-cyan/30',
+    gradient: 'from-zinc-700/30 to-zinc-900',
   },
   {
     title: 'From Blueprint to Cloud: Digitalization in Heavy Contracting',
@@ -28,7 +28,7 @@ const articles = [
     category: 'Systems Architecture',
     date: 'Upcoming',
     readTime: '7 min read',
-    gradient: 'from-cyan/30 to-emerald/30',
+    gradient: 'from-amber-500/20 to-zinc-900',
   },
 ];
 
@@ -37,7 +37,7 @@ export default function Blog() {
 
   return (
     <section id="blog" className="py-24 md:py-32 relative w-full overflow-hidden">
-      <div className="absolute bottom-0 left-1/3 w-[400px] h-[400px] bg-pink/5 rounded-full blur-[200px] pointer-events-none" />
+      <div className="absolute bottom-0 left-1/3 w-[400px] h-[400px] bg-amber-500/5 rounded-full blur-[200px] pointer-events-none" />
 
       <div ref={ref} className="max-w-5xl w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
@@ -47,7 +47,7 @@ export default function Blog() {
         >
           {/* Section Header */}
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-pink text-sm font-semibold tracking-widest uppercase">Executive Insights</span>
+            <span className="text-amber-400 text-sm font-semibold tracking-widest uppercase">Executive Insights</span>
             <h2 className="section-title mt-3">
               Strategic Perspectives & <span className="gradient-text-reverse">Analysis</span>
             </h2>
@@ -56,7 +56,7 @@ export default function Blog() {
             </p>
           </div>
 
-          {/* Article Cards */}
+          {/* Article Bento Cards */}
           <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {articles.map((article, i) => (
               <motion.article
@@ -64,36 +64,36 @@ export default function Blog() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 + i * 0.12 }}
-                className="glass-card rounded-3xl overflow-hidden group cursor-pointer border border-white/5 hover:border-white/20 transition-all flex flex-col justify-between text-center shadow-xl hover:scale-105"
+                className="bento-card rounded-3xl overflow-hidden group cursor-pointer border border-white/10 hover:border-amber-500/30 transition-all flex flex-col justify-between text-center shadow-xl hover:scale-105"
               >
                 <div>
                   {/* Gradient Header */}
-                  <div className={`h-32 bg-gradient-to-br ${article.gradient} flex items-center justify-center relative p-4`}>
-                    <div className="absolute inset-0 bg-dark-900/50" />
-                    <span className="relative z-10 px-3.5 py-1.5 rounded-full bg-white/10 text-xs font-semibold text-white border border-white/20 backdrop-blur-sm shadow-md">
+                  <div className={`h-32 bg-gradient-to-br ${article.gradient} flex items-center justify-center relative p-4 border-b border-white/5`}>
+                    <div className="absolute inset-0 bg-zinc-950/40" />
+                    <span className="relative z-10 px-3.5 py-1.5 rounded-full bg-zinc-900/90 text-xs font-semibold text-amber-300 border border-amber-500/30 backdrop-blur-sm shadow-md">
                       {article.category}
                     </span>
                   </div>
 
                   {/* Content */}
                   <div className="p-6 text-center">
-                    <h3 className="font-[var(--font-heading)] text-lg font-bold text-white mb-3 group-hover:text-electric-light transition-colors leading-snug text-center">
+                    <h3 className="font-[var(--font-heading)] text-lg font-bold text-white mb-3 group-hover:text-amber-300 transition-colors leading-snug text-center">
                       {article.title}
                     </h3>
-                    <p className="text-gray-400 text-sm leading-relaxed mb-4 text-center">
+                    <p className="text-zinc-400 text-sm leading-relaxed mb-4 text-center">
                       {article.excerpt}
                     </p>
                   </div>
                 </div>
 
                 <div className="px-6 pb-6 pt-0">
-                  <div className="flex items-center justify-center gap-4 text-xs text-gray-500 border-t border-white/5 pt-4 text-center">
+                  <div className="flex items-center justify-center gap-4 text-xs text-zinc-500 border-t border-white/5 pt-4 text-center">
                     <span className="flex items-center gap-1">
-                      <Calendar size={12} />
+                      <Calendar size={12} className="text-amber-400" />
                       {article.date}
                     </span>
                     <span className="flex items-center gap-1">
-                      <Clock size={12} />
+                      <Clock size={12} className="text-amber-400" />
                       {article.readTime}
                     </span>
                   </div>
