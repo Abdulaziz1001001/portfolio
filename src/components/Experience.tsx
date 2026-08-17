@@ -60,17 +60,17 @@ export default function Experience() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section id="experience" className="py-24 md:py-32 relative">
-      <div className="absolute top-1/3 right-0 w-[500px] h-[500px] bg-electric/5 rounded-full blur-[200px]" />
+    <section id="experience" className="py-24 md:py-32 relative w-full overflow-hidden">
+      <div className="absolute top-1/3 right-0 w-[500px] h-[500px] bg-electric/5 rounded-full blur-[200px] pointer-events-none" />
 
-      <div ref={ref} className="max-w-4xl mx-auto px-6 relative z-10">
+      <div ref={ref} className="max-w-5xl w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
         >
           {/* Section Header */}
-          <div className="text-center mb-16">
+          <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="text-electric text-sm font-semibold tracking-widest uppercase">Career Trajectory</span>
             <h2 className="section-title mt-3">
               Experience & <span className="gradient-text">Milestones</span>
@@ -81,9 +81,9 @@ export default function Experience() {
           </div>
 
           {/* Timeline */}
-          <div className="relative">
+          <div className="relative max-w-4xl mx-auto">
             {/* Vertical line */}
-            <div className="absolute left-5 md:left-1/2 md:-translate-x-px top-0 bottom-0 w-0.5 bg-gradient-to-b from-electric via-pink to-emerald" />
+            <div className="absolute left-5 md:left-1/2 md:-translate-x-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-electric via-pink to-emerald" />
 
             <div className="space-y-12">
               {timelineItems.map((item, i) => {
@@ -93,12 +93,12 @@ export default function Experience() {
                 return (
                   <motion.div
                     key={item.title}
-                    initial={{ opacity: 0, x: isEven ? -40 : 40 }}
-                    animate={isVisible ? { opacity: 1, x: 0 } : {}}
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={isVisible ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.6, delay: 0.2 + i * 0.15 }}
-                    className={`relative flex items-start gap-6 ${
-                      isEven ? 'md:flex-row' : 'md:flex-row-reverse'
-                    } flex-row`}
+                    className={`relative flex items-center ${
+                      isEven ? 'md:justify-start' : 'md:justify-end'
+                    } justify-start`}
                   >
                     {/* Dot */}
                     <div className="absolute left-5 md:left-1/2 -translate-x-1/2 z-10">
@@ -119,10 +119,10 @@ export default function Experience() {
                     </div>
 
                     {/* Spacer for mobile */}
-                    <div className="w-10 shrink-0 md:hidden" />
+                    <div className="w-12 shrink-0 md:hidden" />
 
                     {/* Card */}
-                    <div className={`md:w-[calc(50%-32px)] w-full ${isEven ? 'md:pr-8' : 'md:pl-8'}`}>
+                    <div className={`w-full md:w-[calc(50%-2rem)] ${isEven ? 'md:mr-auto md:pr-4' : 'md:ml-auto md:pl-4'}`}>
                       <div className={`glass-card rounded-2xl p-6 border ${colors.border} hover:border-white/20 transition-all`}>
                         <div className="flex items-center gap-3 mb-3">
                           <div className={`w-10 h-10 rounded-lg ${colors.bg} flex items-center justify-center`}>

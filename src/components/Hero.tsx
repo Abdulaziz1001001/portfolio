@@ -14,24 +14,24 @@ export default function Hero() {
   const typedText = useTypewriter(roles, 80, 50, 2000);
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="hero" className="relative min-h-screen w-full flex items-center justify-center overflow-hidden">
       {/* Animated gradient background */}
-      <div className="absolute inset-0 animated-gradient opacity-40" />
+      <div className="absolute inset-0 animated-gradient opacity-40 pointer-events-none" />
 
       {/* Gradient orbs */}
-      <div className="absolute top-1/4 -left-32 w-96 h-96 bg-electric/20 rounded-full blur-[120px]" />
-      <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-pink/20 rounded-full blur-[120px]" />
+      <div className="absolute top-1/4 -left-32 w-96 h-96 bg-electric/20 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-pink/20 rounded-full blur-[120px] pointer-events-none" />
 
       {/* Grid pattern overlay */}
       <div
-        className="absolute inset-0 opacity-[0.03]"
+        className="absolute inset-0 opacity-[0.03] pointer-events-none"
         style={{
           backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
           backgroundSize: '60px 60px',
         }}
       />
 
-      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
+      <div className="relative z-10 max-w-5xl w-full mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

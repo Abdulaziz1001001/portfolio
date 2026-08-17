@@ -83,18 +83,18 @@ export default function Skills() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section id="skills" className="py-24 md:py-32 relative">
+    <section id="skills" className="py-24 md:py-32 relative w-full overflow-hidden">
       {/* Background */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-electric/5 rounded-full blur-[200px]" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-electric/5 rounded-full blur-[200px] pointer-events-none" />
 
-      <div ref={ref} className="max-w-6xl mx-auto px-6 relative z-10">
+      <div ref={ref} className="max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
         >
           {/* Section Header */}
-          <div className="text-center mb-16">
+          <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="text-electric text-sm font-semibold tracking-widest uppercase">Core Domains</span>
             <h2 className="section-title mt-3">
               Strategic Skills & <span className="gradient-text">Tech Arsenal</span>

@@ -36,17 +36,17 @@ export default function Blog() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section id="blog" className="py-24 md:py-32 relative">
-      <div className="absolute bottom-0 left-1/3 w-[400px] h-[400px] bg-pink/5 rounded-full blur-[200px]" />
+    <section id="blog" className="py-24 md:py-32 relative w-full overflow-hidden">
+      <div className="absolute bottom-0 left-1/3 w-[400px] h-[400px] bg-pink/5 rounded-full blur-[200px] pointer-events-none" />
 
-      <div ref={ref} className="max-w-6xl mx-auto px-6 relative z-10">
+      <div ref={ref} className="max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
         >
           {/* Section Header */}
-          <div className="text-center mb-16">
+          <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="text-pink text-sm font-semibold tracking-widest uppercase">Executive Insights</span>
             <h2 className="section-title mt-3">
               Strategic Perspectives & <span className="gradient-text-reverse">Analysis</span>

@@ -6,18 +6,18 @@ export default function About() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section id="about" className="py-24 md:py-32 relative">
+    <section id="about" className="py-24 md:py-32 relative w-full overflow-hidden">
       {/* Subtle background accent */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-electric/5 rounded-full blur-[150px]" />
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-electric/5 rounded-full blur-[150px] pointer-events-none" />
 
-      <div ref={ref} className="max-w-6xl mx-auto px-6">
+      <div ref={ref} className="max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
         >
           {/* Section Header */}
-          <div className="text-center mb-16">
+          <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="text-electric text-sm font-semibold tracking-widest uppercase">Executive Profile</span>
             <h2 className="section-title mt-3">
               About <span className="gradient-text">Abdulaziz</span>
@@ -28,11 +28,11 @@ export default function About() {
           </div>
 
           {/* Content Grid */}
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
             {/* Photo Side */}
             <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              animate={isVisible ? { opacity: 1, x: 0 } : {}}
+              initial={{ opacity: 0, y: 30 }}
+              animate={isVisible ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.2 }}
               className="relative"
             >
@@ -66,8 +66,8 @@ export default function About() {
 
             {/* Text Side */}
             <motion.div
-              initial={{ opacity: 0, x: 40 }}
-              animate={isVisible ? { opacity: 1, x: 0 } : {}}
+              initial={{ opacity: 0, y: 30 }}
+              animate={isVisible ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.4 }}
               className="space-y-6"
             >

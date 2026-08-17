@@ -11,9 +11,9 @@ import Footer from './components/Footer';
 
 export default function App() {
   return (
-    <div className="noise-overlay">
+    <div className="noise-overlay min-h-screen w-full overflow-x-hidden flex flex-col bg-dark-900 text-slate-100">
       <Navbar />
-      <main>
+      <main className="flex-1 w-full overflow-x-hidden">
         <Hero />
         <About />
         <Philosophy />
