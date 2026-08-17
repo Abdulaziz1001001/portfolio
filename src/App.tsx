@@ -8,12 +8,14 @@ import Experience from './components/Experience';
 import Blog from './components/Blog';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import ParticlesBackground from './components/ui/ParticlesBackground';
 
 export default function App() {
   return (
-    <div className="noise-overlay min-h-screen w-full overflow-x-hidden flex flex-col bg-dark-900 text-slate-100">
+    <div className="noise-overlay min-h-screen w-full overflow-x-hidden flex flex-col bg-dark-900 text-slate-100 relative">
+      <ParticlesBackground />
       <Navbar />
-      <main className="flex-1 w-full overflow-x-hidden">
+      <main className="flex-1 w-full overflow-x-hidden relative z-10">
         <Hero />
         <About />
         <Philosophy />
