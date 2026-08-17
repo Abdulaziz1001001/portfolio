@@ -112,7 +112,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.5 }}
-          className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl mx-auto glass-card rounded-2xl p-6 text-left"
+          className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto glass-card rounded-2xl p-6 text-left"
         >
           <div className="flex items-start gap-3">
             <div className="w-9 h-9 rounded-lg bg-electric/15 flex items-center justify-center shrink-0 mt-0.5">

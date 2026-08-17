@@ -53,23 +53,23 @@ export default function Navbar() {
           isScrolled ? 'glass py-3' : 'py-5 bg-transparent'
         }`}
       >
-        <div className="max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+        <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between relative">
           {/* Logo */}
           <button
             onClick={() => scrollTo('#hero')}
-            className="font-[var(--font-heading)] text-xl font-bold tracking-tight"
+            className="font-[var(--font-heading)] text-xl font-bold tracking-tight z-10"
           >
             <span className="gradient-text">A</span>
             <span className="text-white">bdulaziz</span>
           </button>
 
-          {/* Desktop Links */}
-          <div className="hidden md:flex items-center gap-1">
+          {/* Desktop Links - Perfectly centered */}
+          <div className="hidden md:flex items-center gap-1 absolute left-1/2 -translate-x-1/2">
             {navLinks.map((link) => (
               <button
                 key={link.href}
                 onClick={() => scrollTo(link.href)}
-                className={`relative px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-300 ${
+                className={`relative px-3.5 py-2 rounded-lg text-sm font-medium transition-colors duration-300 ${
                   activeSection === link.href.slice(1)
                     ? 'text-white'
                     : 'text-gray-400 hover:text-gray-200'
@@ -78,7 +78,7 @@ export default function Navbar() {
                 {activeSection === link.href.slice(1) && (
                   <motion.div
                     layoutId="nav-active"
-                    className="absolute inset-0 rounded-lg bg-white/5 border border-white/10"
+                    className="absolute inset-0 rounded-lg bg-white/10 border border-white/15"
                     transition={{ type: 'spring', stiffness: 350, damping: 30 }}
                   />
                 )}
@@ -91,14 +91,14 @@ export default function Navbar() {
           <a
             href="#contact"
             onClick={(e) => { e.preventDefault(); scrollTo('#contact'); }}
-            className="hidden md:block btn-primary text-sm !py-2 !px-5"
+            className="hidden md:block btn-primary text-sm !py-2 !px-5 z-10"
           >
             Let's Talk
           </a>
 
           {/* Mobile Toggle */}
           <button
-            className="md:hidden text-white p-2"
+            className="md:hidden text-white p-2 z-10"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
           >
