@@ -101,30 +101,28 @@ export default function Projects() {
                       </div>
 
                       {/* Right: Content */}
-                      <div className="p-8 flex flex-col justify-between">
-                        <div>
-                          <div className="flex items-start justify-between mb-2">
-                            <div>
-                              <h3 className="font-[var(--font-heading)] text-xl font-bold text-white">
-                                {project.title}
-                              </h3>
-                              <span className={`text-xs font-semibold ${project.accentColor}`}>{project.role}</span>
-                            </div>
+                      <div className="p-8 flex flex-col justify-between text-center items-center">
+                        <div className="w-full flex flex-col items-center">
+                          <div className="relative w-full flex flex-col items-center justify-center mb-3">
+                            <h3 className="font-[var(--font-heading)] text-xl font-bold text-white text-center">
+                              {project.title}
+                            </h3>
+                            <span className={`text-xs font-semibold ${project.accentColor} mt-1 block text-center`}>{project.role}</span>
                             <button
-                              className="p-2 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"
+                              className="absolute right-0 top-0 p-2 rounded-lg bg-white/5 hover:bg-white/10 transition-colors hidden sm:block"
                               aria-label="View project details"
                             >
                               <ExternalLink size={16} className="text-gray-400 hover:text-white transition-colors" />
                             </button>
                           </div>
 
-                          <p className="text-gray-300 text-sm leading-relaxed mb-4">
+                          <p className="text-gray-300 text-sm leading-relaxed mb-4 text-center">
                             {project.description}
                           </p>
 
-                          <div className="mb-5 p-3 rounded-xl bg-white/[0.03] border border-white/5 flex items-start gap-2">
-                            <ShieldCheck size={16} className={`${project.accentColor} shrink-0 mt-0.5`} />
-                            <p className="text-gray-400 text-xs leading-relaxed">
+                          <div className="mb-5 p-3 rounded-xl bg-white/[0.03] border border-white/5 flex flex-col sm:flex-row items-center justify-center gap-2 text-center w-full">
+                            <ShieldCheck size={16} className={`${project.accentColor} shrink-0`} />
+                            <p className="text-gray-400 text-xs leading-relaxed text-center">
                               <strong className="text-gray-200">Strategic Impact: </strong>
                               {project.impact}
                             </p>
@@ -132,7 +130,7 @@ export default function Projects() {
                         </div>
 
                         {/* Tags */}
-                        <div className="flex flex-wrap gap-2">
+                        <div className="flex flex-wrap justify-center gap-2 w-full">
                           {project.tags.map((tag) => (
                             <span
                               key={tag}

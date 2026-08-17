@@ -123,26 +123,26 @@ export default function Experience() {
 
                     {/* Card */}
                     <div className={`w-full md:w-[calc(50%-2rem)] ${isEven ? 'md:mr-auto md:pr-4' : 'md:ml-auto md:pl-4'}`}>
-                      <div className={`glass-card rounded-2xl p-6 border ${colors.border} hover:border-white/20 transition-all`}>
-                        <div className="flex items-center gap-3 mb-3">
+                      <div className={`glass-card rounded-2xl p-6 border ${colors.border} hover:border-white/20 transition-all text-center flex flex-col items-center`}>
+                        <div className="flex items-center justify-center gap-3 mb-3 text-center">
                           <div className={`w-10 h-10 rounded-lg ${colors.bg} flex items-center justify-center`}>
                             <item.icon size={18} className={colors.text} />
                           </div>
-                          <div>
+                          <div className="text-center">
                             <span className={`text-xs font-semibold ${colors.text}`}>{item.period}</span>
                             <span className="text-gray-600 mx-2">•</span>
                             <span className="text-gray-400 text-xs">{item.org}</span>
                           </div>
                         </div>
 
-                        <h3 className="font-[var(--font-heading)] text-lg font-bold text-white mb-2 flex items-center gap-2">
+                        <h3 className="font-[var(--font-heading)] text-lg font-bold text-white mb-2 flex items-center justify-center gap-2 text-center">
                           {item.title}
                           <ArrowUpRight size={14} className="text-gray-500" />
                         </h3>
 
-                        <p className="text-gray-300 text-sm leading-relaxed mb-4">{item.description}</p>
+                        <p className="text-gray-300 text-sm leading-relaxed mb-4 text-center">{item.description}</p>
 
-                        <div className="flex flex-wrap gap-2">
+                        <div className="flex flex-wrap justify-center gap-2">
                           {item.highlights.map((h) => (
                             <span key={h} className="px-2.5 py-1 rounded-full bg-white/5 text-xs text-gray-300 border border-white/5">
                               {h}

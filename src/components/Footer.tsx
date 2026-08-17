@@ -19,21 +19,21 @@ export default function Footer() {
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-electric/50 to-transparent pointer-events-none" />
 
       <div className="max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="flex flex-col items-center justify-center text-center gap-6">
           {/* Logo & Copyright */}
-          <div className="text-center md:text-left">
-            <div className="font-[var(--font-heading)] text-lg font-bold mb-1">
+          <div className="text-center">
+            <div className="font-[var(--font-heading)] text-xl font-bold mb-2">
               <span className="gradient-text">A</span>
               <span className="text-white">bdulaziz</span>
             </div>
-            <p className="text-gray-500 text-sm">
+            <p className="text-gray-500 text-sm text-center">
               © {currentYear} Abdulaziz Al-Akkah. Built with{' '}
               <Heart size={12} className="inline text-pink" fill="currentColor" /> and React.
             </p>
           </div>
 
           {/* Social Icons */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center justify-center gap-4">
             {[
               { icon: LinkedinIcon, href: 'https://linkedin.com/in/your-profile', label: 'LinkedIn' },
               { icon: Mail, href: 'mailto:your@email.com', label: 'Email' },

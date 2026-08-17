@@ -69,38 +69,38 @@ export default function About() {
               initial={{ opacity: 0, y: 30 }}
               animate={isVisible ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.4 }}
-              className="space-y-6"
+              className="space-y-6 text-center flex flex-col items-center"
             >
-              <h3 className="font-[var(--font-heading)] text-2xl font-bold text-white leading-snug">
+              <h3 className="font-[var(--font-heading)] text-2xl font-bold text-white leading-snug text-center">
                 Transforming Operational Complexity into Scalable Digital Engines
               </h3>
 
-              <p className="text-gray-300 leading-relaxed text-sm md:text-base">
+              <p className="text-gray-300 leading-relaxed text-sm md:text-base text-center">
                 I operate at the strategic convergence of enterprise business logic, software engineering, and turnkey contracting. Within the IT & Technical Operations leadership at AMD United Contracting Company, I eliminate the friction between corporate vision and technical delivery.
               </p>
 
-              <p className="text-gray-400 leading-relaxed text-sm md:text-base">
+              <p className="text-gray-400 leading-relaxed text-sm md:text-base text-center">
                 My primary focus centers on end-to-end system governance: auditing bespoke ERP and HR functional requirements, engineering robust multi-department workflows, and actively steering external vendor development to mitigate scope drift and ensure architectural compliance.
               </p>
 
               {/* Core Competency Bullets */}
-              <div className="space-y-2.5 pt-2">
-                <div className="flex items-center gap-2.5 text-sm text-gray-300">
+              <div className="space-y-2.5 pt-2 flex flex-col items-center w-full">
+                <div className="flex items-center justify-center gap-2.5 text-sm text-gray-300 text-center">
                   <CheckCircle2 size={16} className="text-emerald shrink-0" />
                   <span>Strategic vendor management & architectural review</span>
                 </div>
-                <div className="flex items-center gap-2.5 text-sm text-gray-300">
+                <div className="flex items-center justify-center gap-2.5 text-sm text-gray-300 text-center">
                   <CheckCircle2 size={16} className="text-emerald shrink-0" />
                   <span>Turnkey contracting workflow & ERP/HR auditing</span>
                 </div>
-                <div className="flex items-center gap-2.5 text-sm text-gray-300">
+                <div className="flex items-center justify-center gap-2.5 text-sm text-gray-300 text-center">
                   <CheckCircle2 size={16} className="text-emerald shrink-0" />
                   <span>Full-Stack product delivery (React Native, TypeScript, Supabase)</span>
                 </div>
               </div>
 
               {/* Info Tags */}
-              <div className="flex flex-wrap gap-3 pt-4">
+              <div className="flex flex-wrap justify-center gap-3 pt-4">
                 <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 text-xs md:text-sm text-gray-300 border border-white/5">
                   <MapPin size={14} className="text-pink" />
                   Riyadh, Saudi Arabia
@@ -112,7 +112,7 @@ export default function About() {
               </div>
 
               {/* Action Buttons */}
-              <div className="pt-2">
+              <div className="pt-2 flex justify-center w-full">
                 <a
                   href="#contact"
                   onClick={(e) => {

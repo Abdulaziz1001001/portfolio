@@ -64,7 +64,7 @@ export default function Blog() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={isVisible ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.2 + i * 0.15 }}
-                className="glass-card rounded-2xl overflow-hidden group cursor-pointer border border-white/5 hover:border-white/20 transition-all flex flex-col justify-between"
+                className="glass-card rounded-2xl overflow-hidden group cursor-pointer border border-white/5 hover:border-white/20 transition-all flex flex-col justify-between text-center"
               >
                 <div>
                   {/* Gradient Header */}
@@ -76,29 +76,26 @@ export default function Blog() {
                   </div>
 
                   {/* Content */}
-                  <div className="p-6">
-                    <h3 className="font-[var(--font-heading)] text-lg font-bold text-white mb-3 group-hover:text-electric-light transition-colors leading-snug">
+                  <div className="p-6 text-center">
+                    <h3 className="font-[var(--font-heading)] text-lg font-bold text-white mb-3 group-hover:text-electric-light transition-colors leading-snug text-center">
                       {article.title}
                     </h3>
-                    <p className="text-gray-400 text-sm leading-relaxed mb-4">
+                    <p className="text-gray-400 text-sm leading-relaxed mb-4 text-center">
                       {article.excerpt}
                     </p>
                   </div>
                 </div>
 
                 <div className="px-6 pb-6 pt-0">
-                  <div className="flex items-center justify-between text-xs text-gray-500 border-t border-white/5 pt-4">
-                    <div className="flex items-center gap-3">
-                      <span className="flex items-center gap-1">
-                        <Calendar size={12} />
-                        {article.date}
-                      </span>
-                      <span className="flex items-center gap-1">
-                        <Clock size={12} />
-                        {article.readTime}
-                      </span>
-                    </div>
-                    <ArrowRight size={14} className="text-gray-500 group-hover:text-electric-light group-hover:translate-x-1 transition-all" />
+                  <div className="flex items-center justify-center gap-4 text-xs text-gray-500 border-t border-white/5 pt-4 text-center">
+                    <span className="flex items-center gap-1">
+                      <Calendar size={12} />
+                      {article.date}
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <Clock size={12} />
+                      {article.readTime}
+                    </span>
                   </div>
                 </div>
               </motion.article>

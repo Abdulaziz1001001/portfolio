@@ -17,21 +17,21 @@ const socialLinks = [
   {
     label: 'LinkedIn',
     icon: LinkedinIcon,
-    href: 'https://linkedin.com/in/your-profile',
+    href: 'https://www.linkedin.com/in/abdulaziz-alikah-127913289',
     color: 'hover:text-electric-light hover:border-electric/30',
     description: 'Professional network & advisory',
   },
   {
     label: 'Email',
     icon: Mail,
-    href: 'mailto:your@email.com',
+    href: 'mailto:azizshaban73@gmail.com',
     color: 'hover:text-pink hover:border-pink/30',
     description: 'Direct inquiry & formal briefs',
   },
   {
     label: 'WhatsApp',
     icon: MessageCircle,
-    href: 'https://wa.me/966XXXXXXXXX',
+    href: 'https://wa.me/966504600202',
     color: 'hover:text-emerald hover:border-emerald/30',
     description: 'Fast strategic correspondence',
   },
@@ -78,8 +78,8 @@ export default function Contact() {
               animate={isVisible ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <div className="glass-card rounded-2xl p-8 border border-white/5">
-                <h3 className="font-[var(--font-heading)] text-xl font-bold text-white mb-6">
+              <div className="glass-card rounded-2xl p-8 border border-white/5 text-center">
+                <h3 className="font-[var(--font-heading)] text-xl font-bold text-white mb-6 text-center">
                   Send a Direct Brief
                 </h3>
 
@@ -96,40 +96,40 @@ export default function Contact() {
                     <p className="text-gray-400 text-sm">Thank you. I will review your inquiry and follow up promptly.</p>
                   </motion.div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="space-y-5">
+                  <form onSubmit={handleSubmit} className="space-y-5 text-center">
                     <div>
-                      <label htmlFor="contact-name" className="text-sm text-gray-400 mb-1.5 block">Full Name</label>
+                      <label htmlFor="contact-name" className="text-sm text-gray-400 mb-1.5 block text-center">Full Name</label>
                       <input
                         id="contact-name"
                         type="text"
                         required
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl bg-dark-700 border border-white/10 text-white placeholder:text-gray-600 focus:outline-none focus:border-electric/50 focus:ring-1 focus:ring-electric/30 transition-all"
+                        className="w-full px-4 py-3 rounded-xl bg-dark-700 border border-white/10 text-white text-center placeholder:text-gray-600 focus:outline-none focus:border-electric/50 focus:ring-1 focus:ring-electric/30 transition-all"
                         placeholder="e.g. John Doe / Eng. Sarah Al-Otaibi"
                       />
                     </div>
                     <div>
-                      <label htmlFor="contact-email" className="text-sm text-gray-400 mb-1.5 block">Corporate Email</label>
+                      <label htmlFor="contact-email" className="text-sm text-gray-400 mb-1.5 block text-center">Corporate Email</label>
                       <input
                         id="contact-email"
                         type="email"
                         required
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl bg-dark-700 border border-white/10 text-white placeholder:text-gray-600 focus:outline-none focus:border-electric/50 focus:ring-1 focus:ring-electric/30 transition-all"
+                        className="w-full px-4 py-3 rounded-xl bg-dark-700 border border-white/10 text-white text-center placeholder:text-gray-600 focus:outline-none focus:border-electric/50 focus:ring-1 focus:ring-electric/30 transition-all"
                         placeholder="you@company.com"
                       />
                     </div>
                     <div>
-                      <label htmlFor="contact-message" className="text-sm text-gray-400 mb-1.5 block">Project Context & Scope</label>
+                      <label htmlFor="contact-message" className="text-sm text-gray-400 mb-1.5 block text-center">Project Context & Scope</label>
                       <textarea
                         id="contact-message"
                         required
                         rows={5}
                         value={formData.message}
                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl bg-dark-700 border border-white/10 text-white placeholder:text-gray-600 focus:outline-none focus:border-electric/50 focus:ring-1 focus:ring-electric/30 transition-all resize-none"
+                        className="w-full px-4 py-3 rounded-xl bg-dark-700 border border-white/10 text-white text-center placeholder:text-gray-600 focus:outline-none focus:border-electric/50 focus:ring-1 focus:ring-electric/30 transition-all resize-none"
                         placeholder="Briefly outline your systems requirements, timeline, or consultation goals..."
                       />
                     </div>
@@ -147,13 +147,13 @@ export default function Contact() {
               initial={{ opacity: 0, y: 30 }}
               animate={isVisible ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="space-y-6"
+              className="space-y-6 text-center"
             >
-              <div>
-                <h3 className="font-[var(--font-heading)] text-xl font-bold text-white mb-2">
+              <div className="text-center">
+                <h3 className="font-[var(--font-heading)] text-xl font-bold text-white mb-2 text-center">
                   Direct Channels
                 </h3>
-                <p className="text-gray-400 text-sm">
+                <p className="text-gray-400 text-sm text-center">
                   Feel free to connect via preferred executive communication channels.
                 </p>
               </div>
@@ -167,26 +167,28 @@ export default function Contact() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={isVisible ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5, delay: 0.5 + i * 0.1 }}
-                  className={`glass-card rounded-2xl p-5 flex items-center gap-4 group border border-white/5 ${link.color} transition-all`}
+                  className={`glass-card rounded-2xl p-5 flex items-center justify-between group border border-white/5 ${link.color} transition-all`}
                 >
-                  <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center group-hover:bg-white/10 transition-colors">
-                    <link.icon size={22} className="text-gray-400 group-hover:scale-110 transition-all" />
-                  </div>
-                  <div className="flex-1">
-                    <div className="text-white font-semibold text-sm">{link.label}</div>
-                    <div className="text-gray-500 text-xs">{link.description}</div>
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center group-hover:bg-white/10 transition-colors">
+                      <link.icon size={22} className="text-gray-400 group-hover:scale-110 transition-all" />
+                    </div>
+                    <div className="text-left">
+                      <div className="text-white font-semibold text-sm">{link.label}</div>
+                      <div className="text-gray-500 text-xs">{link.description}</div>
+                    </div>
                   </div>
                   <ArrowUpRight size={16} className="text-gray-600 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </motion.a>
               ))}
 
               {/* Availability Card */}
-              <div className="glass-card rounded-2xl p-6 mt-8 border border-emerald/20">
-                <div className="flex items-center gap-3 mb-3">
+              <div className="glass-card rounded-2xl p-6 mt-8 border border-emerald/20 text-center flex flex-col items-center">
+                <div className="flex items-center justify-center gap-3 mb-3 text-center">
                   <span className="w-3 h-3 rounded-full bg-emerald animate-pulse" />
                   <span className="text-emerald text-sm font-semibold">Open for Strategic Opportunities</span>
                 </div>
-                <p className="text-gray-400 text-sm leading-relaxed">
+                <p className="text-gray-400 text-sm leading-relaxed text-center">
                   Available for technical operations consulting, enterprise systems architecture reviews, and high-impact ConTech advisory.
                 </p>
               </div>

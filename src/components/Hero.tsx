@@ -112,11 +112,11 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.5 }}
-          className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto glass-card rounded-2xl p-6 text-left"
+          className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto glass-card rounded-2xl p-6 text-center"
         >
-          <div className="flex items-start gap-3">
-            <div className="w-9 h-9 rounded-lg bg-electric/15 flex items-center justify-center shrink-0 mt-0.5">
-              <ShieldCheck size={18} className="text-electric-light" />
+          <div className="flex flex-col items-center text-center gap-2">
+            <div className="w-10 h-10 rounded-lg bg-electric/15 flex items-center justify-center shrink-0">
+              <ShieldCheck size={20} className="text-electric-light" />
             </div>
             <div>
               <div className="text-white text-sm font-semibold">Governance</div>
@@ -124,9 +124,9 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="flex items-start gap-3">
-            <div className="w-9 h-9 rounded-lg bg-pink/15 flex items-center justify-center shrink-0 mt-0.5">
-              <GitBranch size={18} className="text-pink" />
+          <div className="flex flex-col items-center text-center gap-2">
+            <div className="w-10 h-10 rounded-lg bg-pink/15 flex items-center justify-center shrink-0">
+              <GitBranch size={20} className="text-pink" />
             </div>
             <div>
               <div className="text-white text-sm font-semibold">Alignment</div>
@@ -134,9 +134,9 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="flex items-start gap-3">
-            <div className="w-9 h-9 rounded-lg bg-emerald/15 flex items-center justify-center shrink-0 mt-0.5">
-              <Cpu size={18} className="text-emerald" />
+          <div className="flex flex-col items-center text-center gap-2">
+            <div className="w-10 h-10 rounded-lg bg-emerald/15 flex items-center justify-center shrink-0">
+              <Cpu size={20} className="text-emerald" />
             </div>
             <div>
               <div className="text-white text-sm font-semibold">Architecture</div>

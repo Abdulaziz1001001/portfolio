@@ -112,13 +112,13 @@ export default function Skills() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={isVisible ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.2 + catIndex * 0.15 }}
-                className={`glass-card rounded-2xl p-6 border ${cat.borderColor} flex flex-col justify-between`}
+                className={`glass-card rounded-2xl p-6 border ${cat.borderColor} flex flex-col justify-between text-center`}
               >
                 <div>
-                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${cat.color} flex items-center justify-center mb-5 shadow-lg`}>
+                  <div className={`w-12 h-12 mx-auto rounded-xl bg-gradient-to-br ${cat.color} flex items-center justify-center mb-5 shadow-lg`}>
                     <cat.icon size={22} className="text-white" />
                   </div>
-                  <h3 className="font-[var(--font-heading)] text-lg font-bold text-white mb-6 leading-snug">{cat.title}</h3>
+                  <h3 className="font-[var(--font-heading)] text-lg font-bold text-white mb-6 leading-snug text-center">{cat.title}</h3>
                   <div className="space-y-4">
                     {cat.skills.map((skill, i) => (
                       <SkillBar key={skill.name} name={skill.name} level={skill.level} delay={0.3 + i * 0.1} />
